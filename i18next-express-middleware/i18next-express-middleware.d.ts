@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 ///<reference path="../express/express.d.ts"/>
-///<reference path="../i18next/i18next-2.0.17.d.ts"/>
+///<reference path="../i18next/i18next.d.ts"/>
 
 declare namespace I18next {
     interface I18nextOptions extends i18nextExpressMiddleware.I18nextOptions { }
@@ -97,8 +97,8 @@ declare module "i18next-express-middleware" {
         init(services: any, options?: Object, allOptions?: Object): void;
     }
 
-    export function getResourcesHandler(i18next: I18nextStatic, options: Object): express.Handler;
-    export function handle(i18next: I18nextStatic, options?: Object): express.Handler;
+    export function getResourcesHandler(i18next: I18next.I18n, options: Object): express.Handler;
+    export function handle(i18next: I18next.I18n, options?: Object): express.Handler;
 
     /**
      * @summary Gets handler for missing key.
@@ -106,5 +106,5 @@ declare module "i18next-express-middleware" {
      * @param {Object}          options The options.
      * @return {express.Handler} The express handler.
      */
-    export function missingKeyHandler(i18next: I18nextStatic, options: Object): express.Handler;
+    export function missingKeyHandler(i18next: I18next.I18n, options: Object): express.Handler;
 }
